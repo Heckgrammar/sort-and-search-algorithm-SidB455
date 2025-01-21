@@ -58,7 +58,7 @@ namespace compare_algorithm
             }
             else if(userAnswer == 4)
             {
-                MergeSortRecursive
+                MergeSortRecursive(array, 0,array.Length - 1);
             }
 
 
@@ -124,11 +124,27 @@ namespace compare_algorithm
         }
         static bool LinearSearch(int[] a, int numToFind)
         {
-
+            if (numToFind < 0) 
+            {
+                return false;
+            }
+            for (int i = 0; i < a.Length; i++)
+            {
+                if (i == numToFind)
+                {
+                    return true;
+                }
+                else if (i == a.Length - 1)
+                {
+                    Console.WriteLine($"{numToFind} not in array");
+                    return false;
+                }
+            }
+            return LinearSearch(a, numToFind);
         }
         static bool BinarySearch(int[] a, int numToFind)
         {
-            
+            return BinarySearch(a, numToFind);
         }
             
     }
